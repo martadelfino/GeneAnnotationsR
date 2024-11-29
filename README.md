@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # GeneAnnotationsR
 
 Package for getting gene-level annotations in R.
@@ -18,8 +12,7 @@ Package for getting gene-level annotations in R.
 
 -   Gene expression (human and mouse)
 
--   Gene sequence annotations (gene length, coding sequence length, 3'
-    and 5' UTR length)
+-   Gene sequence annotations (gene length, coding sequence length, 3' and 5' UTR length)
 
 -   Gnomad constraing metrics
 
