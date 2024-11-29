@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+data/human_gene_expression.RData
+data/mouse_gene_expression.RData
+data/*

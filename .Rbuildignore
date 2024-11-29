@@ -1,0 +1,7 @@
+^renv$
+^renv\.lock$
+^GeneAnnotationsR\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^R/get_go\.R$
+^.*\.DS_Store$

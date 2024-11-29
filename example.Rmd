@@ -1,0 +1,16 @@
+
+Examples of each function in the GeneAnnotationsR package
+
+```{r}
+if (!requireNamespace("GeneAnnotationsR", quietly = TRUE)) {
+  devtools::install_github("martadelfino/GeneAnnotationsR")
+}
+
+library(GeneAnnotationsR)
+```
+
+
+```{r}
+
+```
+
