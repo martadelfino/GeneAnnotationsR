@@ -2,7 +2,7 @@
 
 Package for getting gene-level annotations in R.
 
-#### List of gene annotations available: 
+#### List of gene annotations available:
 
 -   Alphamissense
 
@@ -26,7 +26,7 @@ Package for getting gene-level annotations in R.
 
 -   Subcellular location
 
-#### Other functions available: 
+#### Other functions available:
 
 -   for summary stats, plotting
 
