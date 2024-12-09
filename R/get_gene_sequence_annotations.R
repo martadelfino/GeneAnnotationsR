@@ -7,7 +7,7 @@
 #' @export
 access_structure_page <- function() {
 
-  ensembl <- useMart("ensembl", dataset = "hsapiens_gene_ensembl", host="www.ensembl.org")
+  ensembl <- useMart("ensembl", dataset = "hsapiens_gene_ensembl", host="https://www.ensembl.org")
   results1 <- biomaRt::getBM(attributes = c('ensembl_gene_id',
                                             'start_position',
                                             'end_position',
