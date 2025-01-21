@@ -21,13 +21,13 @@ download_mutation_supp_file <- function() {
 
 #' Helper Function 2 - read mutation supplementary file xls
 #'
-#'
+#' @importFrom readxl read_excel
 #'
 #' @return A df from the xls mutations file
 #' @export
 read_sheet <- function(temp_file, sheet_number) {
   # Read the specified sheet from the downloaded file
-  df <- readxl::read_excel(temp_file, sheet = sheet_number)
+  df <- read_excel(temp_file, sheet = sheet_number)
 
   # Convert to a regular data frame if desired
   df <- as.data.frame(df)
