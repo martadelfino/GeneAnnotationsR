@@ -4,7 +4,7 @@
 \alias{get_subcellular_location}
 \title{Main Function - get subcellular locations}
 \usage{
-get_subcellular_location(protein_coding_genes)
+get_subcellular_location(protein_coding_genes, high_support_and_binary = TRUE)
 }
 \value{
 A dataframe with subcellular locations mapped to hgnc_id

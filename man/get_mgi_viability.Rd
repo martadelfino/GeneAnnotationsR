@@ -14,8 +14,8 @@ get_mgi_viability(mouse_proteincoding_genes, lethal_terms)
 \value{
 Dataframe of MGI viability.
 \describe{
-\item{mgi_id}
-\item{viability_mgi}
+\item{mgi_id}{MDI IF for gene}
+\item{viability_mgi}{MGI viability}
 }
 }
 \description{

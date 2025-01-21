@@ -23,8 +23,8 @@ get_mouse_protein_coding_genes <- function() {
 #'
 #' @return Dataframe of IMPC viability.
 #' \describe{
-#'   \item{mgi_id}
-#'   \item{viability_impc}
+#'   \item{mgi_id}{MDI IF for gene}
+#'   \item{viability_impc}{IMPC viability}
 #' }
 #' @export
 get_impc_viability <- function() {
@@ -48,8 +48,8 @@ get_impc_viability <- function() {
 #' @param lethal_terms lethal terms.
 #' @return Dataframe of MGI viability.
 #' \describe{
-#'   \item{mgi_id}
-#'   \item{viability_mgi}
+#'   \item{mgi_id}{MDI IF for gene}
+#'   \item{viability_mgi}{MGI viability}
 #' }
 #' @export
 get_mgi_viability <- function(mouse_proteincoding_genes, lethal_terms) {

@@ -18,4 +18,8 @@ Imports:
     tibble,
     data.table,
     magrittr,
-    tidyr
+    tidyr,
+    org.Hs.eg.db,
+    AnnotationDbi,
+    GO.db,
+    readxl

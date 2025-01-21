@@ -2,35 +2,61 @@
 
 Package for getting gene-level annotations in R.
 
-#### List of gene annotations available:
+##### Firstly, all the protein coding genes are needed
+
+-   A function called 'get_protein_coding_genes()' gets a df of all protein coding genes HGNC IDs.
+
+#### List of gene annotations:
+
+##### Constraint metrics
 
 -   Alphamissense
 
--   Cancer cell line screen gene essentiality
+-   Gnomad constraint metrics
+
+-   Shet metrics
+
+-   DOMINO metric
+
+-   SCoNes metric
+
+##### Cell line screens gene essentiality
+
+-   Cancer cell line (DepMap) screen gene essentiality
+
+-   hPSC screen gene essentiality
+
+##### Mouse model gene essentiality
+
+-   Mouse (MGI + IMPC) gene viability
+
+##### Phenotype
+
+-   Mouse and zebrafish Phenodigm scores (only available for NDD and cardiac rare disease genes)
+
+##### Interactions
 
 -   Chemical-gene interactions
 
--   Gene expression (human and mouse)
+##### Gene sequence
+
+-   Gene expression (human and mouse, evodevo group)
 
 -   Gene sequence annotations (gene length, coding sequence length, 3' and 5' UTR length)
 
--   Gnomad constraing metrics
+-   *De novo* mutation rates (synonymous, missense, loss-of-function, splice site, nonsense, and all) (<https://pmc.ncbi.nlm.nih.gov/articles/PMC4222185/>)
 
--   HPSC screen gene essentiality
-
--   Mouse gene viability
-
--   Shet, DOMINO, and SCoNes constraint metrics
+##### Protein
 
 -   Protein expression
 
--   Subcellular location
+-   Sub-cellular location
+
+-   GO terms
 
 #### Other functions available:
 
 -   for summary stats, plotting
-
--   for feature engineering (one hot encoding, more?)
 
 ### Requirements:
 
@@ -49,6 +75,12 @@ Package for getting gene-level annotations in R.
 -   magrittr
 
 -   tidyr
+
+-   org.Hs.eg.db
+
+-   AnnotationDbi
+
+-   GO.db
 
 ### Example:
 

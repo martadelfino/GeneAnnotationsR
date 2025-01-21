@@ -4,7 +4,7 @@
 \alias{get_protein_expression}
 \title{Main Function - get protein expression}
 \usage{
-get_protein_expression(protein_coding_genes)
+get_protein_expression(protein_coding_genes, brain_tissues_only = TRUE)
 }
 \value{
 A dataframe with protein expression mapped to hgnc_id

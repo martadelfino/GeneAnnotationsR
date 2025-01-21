@@ -1,7 +1,30 @@
 
-Examples of each function in the GeneAnnotationsR package
+Examples of each function in the GeneAnnotationsR package - IN PROGRESS
 
 ```{r}
+
+if (!requireNamespace("tidyverse", quietly = TRUE))
+    install.packages("tidyverse")
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+if (!requireNamespace("biomaRt", quietly = TRUE)) {
+  BiocManager::install("biomaRt")
+}
+
+if (!require("org.Hs.eg.db", quietly = TRUE))
+  BiocManager::install("org.Hs.eg.db")
+
+if (!require("AnnotationDbi", quietly = TRUE))
+  BiocManager::install("AnnotationDbi")
+
+if (!require("GO.db", quietly = TRUE))
+  BiocManager::install("GO.db")
+
+if (!requireNamespace("devtools", quietly = TRUE))
+    install.packages("devtools")
+
 if (!requireNamespace("GeneAnnotationsR", quietly = TRUE)) {
   devtools::install_github("martadelfino/GeneAnnotationsR")
 }
