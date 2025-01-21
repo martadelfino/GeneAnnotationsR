@@ -84,7 +84,7 @@ get_denovo_mutation_rates <- function(protein_coding_genes) {
   denovo_pcg <- pcg %>%
     left_join(denovo_with_symbcheck, by = c("hgnc_id" = "hgnc_id")) %>%
     dplyr::select(-`gene_symbol.x`, -`gene_symbol.y`, -`type`,
-                  -`transcript`, -`alias_symbol`)
+                  -`transcript`, -`alias_symbol`, -`prev_symbol`)
 
   return(denovo_pcg)
 }
