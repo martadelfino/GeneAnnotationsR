@@ -64,7 +64,7 @@ access_denovo_mutation_rates_sheet <- function() {
 #' @export
 get_denovo_mutation_rates <- function(protein_coding_genes) {
 
-  pcg_for_symbolcheck <- get_protein_coding_genes()
+  #pcg_for_symbolcheck <- get_protein_coding_genes()
 
   pcg <- protein_coding_genes %>%
     dplyr::select(hgnc_id, symbol) %>%
@@ -83,7 +83,7 @@ get_denovo_mutation_rates <- function(protein_coding_genes) {
   # merging denovo symbol checked and pcg
   denovo_pcg <- pcg %>%
     left_join(denovo_with_symbcheck, by = c("hgnc_id" = "hgnc_id")) %>%
-    dplyr::select(-`gene_symbol.x`, -`gene_symbol.y`, -`refseq_accession`, -`type`,
+    dplyr::select(-`gene_symbol.x`, -`gene_symbol.y`, -`type`,
                   -`transcript`)
 
   return(denovo_pcg)
