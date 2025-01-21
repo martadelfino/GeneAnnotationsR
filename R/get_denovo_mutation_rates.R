@@ -27,7 +27,7 @@ download_mutation_supp_file <- function() {
 #' @export
 read_sheet <- function(temp_file, sheet_number) {
   # Read the specified sheet from the downloaded file
-  df <- read_excel(temp_file, sheet = sheet_number)
+  df <- readxl::read_excel(temp_file, sheet = sheet_number)
 
   # Convert to a regular data frame if desired
   df <- as.data.frame(df)
