@@ -75,7 +75,7 @@ get_denovo_mutation_rates <- function(protein_coding_genes) {
   # pull gene symbols
   symbols <- dplyr::pull(denovo, gene)
   # Check the gene symbols
-  denovo_symbols_check <- hgnc.checker(symbols, pcg_for_symbolcheck)
+  denovo_symbols_check <- hgnc_checker(symbols, pcg_for_symbolcheck)
   # Merge the data with the gene symbols
   denovo_with_symbcheck <- denovo_symbols_check %>%
     inner_join(denovo, by = c("gene_symbol" = "gene"))
