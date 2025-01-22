@@ -55,7 +55,8 @@ get_gene_expression <- function(protein_coding_genes, organism, vector_of_organs
   # Merge the combined organ data with protein_coding_genes
   organ_hgnc <- protein_coding_genes %>%
     left_join(results, by = 'ensembl_gene_id') %>%
-    distinct()
+    distinct() %>%
+    dplyr::select(-`ensembl_gene_id`)
 
   return(organ_hgnc)
 }
