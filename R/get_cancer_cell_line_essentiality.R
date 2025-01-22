@@ -99,6 +99,8 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
 
   Sys.setenv("VROOM_CONNECTION_SIZE" = "2097152")
 
+  genes <- genes %>% dplyr::select(hgnc_id)
+
   #protein_coding_genes <- get_protein_coding_genes()
 
   #head(CRISPRGeneEffects)
