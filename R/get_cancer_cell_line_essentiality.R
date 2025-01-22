@@ -141,31 +141,24 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- genes %>%
     left_join(depmap, by = join_by(hgnc_id))
 
-  #depmap[, 3:ncol(depmap)] <- lapply(depmap[, 3:ncol(depmap)], as.numeric)
+  # Suppose your data frame is 'depmap'
+  for (col_name in names(depmap)[3:ncol(depmap)]) {
+    original_col <- depmap[[col_name]]
+    # Use suppressWarnings so we don't get repeated warnings
+    num_col <- suppressWarnings(as.numeric(original_col))
 
-  depmap[, 3:ncol(depmap)] <- lapply(
-    depmap[, 3:ncol(depmap)],
-    function(x) {
-      # Attempt numeric conversion
-      y <- as.numeric(x)
+    # Find indices of values that become NA after as.numeric(),
+    # but were not originally NA in the data
+    bad_idx <- which(is.na(num_col) & !is.na(original_col))
 
-      # Identify row indices where conversion produced NA but the original was not NA
-      bad_idx <- which(is.na(y) & !is.na(x))
-
-      # If any were coerced to NA, show row numbers and original values
-      if (length(bad_idx) > 0) {
-        cat("NAs introduced by coercion in the following rows:\n")
-        print(data.frame(
-          row_number    = bad_idx,
-          original_value = x[bad_idx]
-        ))
-        cat("\n")
-      }
-
-      # Return the newly coerced column
-      y
+    if (length(bad_idx) > 0) {
+      cat("\nColumn:", col_name, "\n")
+      print(original_col[bad_idx])
     }
-  )
+  }
+
+
+  depmap[, 3:ncol(depmap)] <- lapply(depmap[, 3:ncol(depmap)], as.numeric)
 
   #print(depmap)
 
