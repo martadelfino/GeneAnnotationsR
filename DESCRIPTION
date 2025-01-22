@@ -23,3 +23,5 @@ Imports:
     AnnotationDbi,
     GO.db,
     readxl
+Depends: 
+    R (>= 3.5)
