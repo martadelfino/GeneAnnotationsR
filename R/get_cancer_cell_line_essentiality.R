@@ -102,9 +102,11 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   #protein_coding_genes <- get_protein_coding_genes()
 
   #head(CRISPRGeneEffects)
+  print('CRISPRGeneEffects_ids')
   CRISPRGeneEffect_ids <- readr::read_csv(CRISPRGeneEffects, col_names = TRUE) %>%
     dplyr::rename(cell_line_id = '...1')
 
+  print('temp_CGE')
   temp_CGE <- CRISPRGeneEffect_ids %>%
     inner_join(models, by = 'cell_line_id') %>%
     dplyr::select(!OncotreeLineage)
@@ -122,9 +124,11 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- tibble::rownames_to_column(data.frame(t_depmap))
   colnames(depmap)[1] <- 'symbol'
 
+  print('depmap_hgnc')
   # Using hgnc_checker
   depmap_hgnc <- hgnc_checker(depmap$symbol) #, protein_coding_genes)
 
+  print('depmap')
   # Adding HGNC IDs to depmap df
   depmap <- left_join(depmap, depmap_hgnc, join_by('symbol' == 'gene_symbol'))
   depmap <- depmap %>% dplyr::relocate(hgnc_id)
@@ -132,6 +136,7 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   # Remove last column (with the symbol type)
   depmap <- dplyr::select(depmap, -last_col())
 
+  print('depmap 2')
   # Get depmap annotations for only genes of interest
   depmap <- genes %>%
     left_join(depmap, by = join_by(hgnc_id))
@@ -141,6 +146,7 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   #print(depmap)
 
   if (get_mean) {
+    print('depmap 3.1')
     depman_mean <- depmap %>%
       dplyr::mutate(cell_lines_mean = rowMeans(dplyr::select(., 3:ncol(depmap)), na.rm = TRUE)) %>%
       dplyr::select(hgnc_id, cell_lines_mean)
