@@ -124,9 +124,10 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- tibble::rownames_to_column(data.frame(t_depmap))
   colnames(depmap)[1] <- 'symbol'
 
-  #print('depmap_hgnc')
+  print('depmap_hgnc')
   # Using hgnc_checker
   depmap_hgnc <- hgnc_checker(depmap$symbol) #, protein_coding_genes)
+  head(depmap_hgnc)
 
   #print('depmap')
   # Adding HGNC IDs to depmap df
@@ -136,28 +137,12 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   # Remove last column (with the symbol type)
   depmap <- dplyr::select(depmap, -last_col())
 
-  print('depmap 2')
+  #print('depmap 2')
   # Get depmap annotations for only genes of interest
   depmap <- genes %>%
     left_join(depmap, by = join_by(hgnc_id))
 
-  # 1) Identify rows in which at least one of the columns 3..n is non-numeric
-  bad_rows <- apply(
-    depmap[, 3:ncol(depmap)],
-    1,
-    function(x) {
-      any(is.na(suppressWarnings(as.numeric(x))))
-    }
-  )
-
-  # 2) Print out (or store) those rows. This shows the entire row.
-  print('bad_rows')
-  print(depmap[bad_rows, ])
-
-
   depmap[, 3:ncol(depmap)] <- lapply(depmap[, 3:ncol(depmap)], as.numeric)
-
-  #print(depmap)
 
   if (get_mean) {
     #print('depmap 3.1')
