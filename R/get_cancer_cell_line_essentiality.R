@@ -146,19 +146,23 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap[, 3:ncol(depmap)] <- lapply(
     depmap[, 3:ncol(depmap)],
     function(x) {
-      # Attempt conversion
+      # Attempt numeric conversion
       y <- as.numeric(x)
 
-      # Identify positions where `y` is NA but `x` was not originally NA
-      idx <- which(is.na(y) & !is.na(x))
+      # Identify row indices where conversion produced NA but the original was not NA
+      bad_idx <- which(is.na(y) & !is.na(x))
 
-      # If any problematic rows exist, print them
-      if (length(idx) > 0) {
-        cat("These values are being coerced to NA:\n")
-        print(data.frame(row = idx, original_value = x[idx]))
+      # If any were coerced to NA, show row numbers and original values
+      if (length(bad_idx) > 0) {
+        cat("NAs introduced by coercion in the following rows:\n")
+        print(data.frame(
+          row_number    = bad_idx,
+          original_value = x[bad_idx]
+        ))
+        cat("\n")
       }
 
-      # Return the coerced vector
+      # Return the newly coerced column
       y
     }
   )
