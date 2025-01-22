@@ -99,7 +99,7 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
 
   Sys.setenv("VROOM_CONNECTION_SIZE" = "2097152")
 
-  protein_coding_genes <- get_protein_coding_genes()
+  #protein_coding_genes <- get_protein_coding_genes()
 
   head(CRISPRGeneEffects)
   CRISPRGeneEffect_ids <- readr::read_csv(CRISPRGeneEffects, col_names = TRUE) %>%
@@ -122,8 +122,8 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- tibble::rownames_to_column(data.frame(t_depmap))
   colnames(depmap)[1] <- 'symbol'
 
-  # Using hgnc.checker
-  depmap_hgnc <- hgnc.checker(depmap$symbol, protein_coding_genes)
+  # Using hgnc_checker
+  depmap_hgnc <- hgnc_checker(depmap$symbol) #, protein_coding_genes)
 
   # Adding HGNC IDs to depmap df
   depmap <- left_join(depmap, depmap_hgnc, join_by('symbol' == 'gene_symbol'))
