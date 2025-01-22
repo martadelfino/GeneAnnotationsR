@@ -5,4 +5,4 @@
 
 load('./data/LethalTerms.RData')
 
-usethis::use_data(lethal_terms, overwrite = TRUE)
+usethis::use_data(lethal_terms, internal = TRUE, overwrite = TRUE)

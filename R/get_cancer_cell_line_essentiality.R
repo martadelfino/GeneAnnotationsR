@@ -101,7 +101,7 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
 
   #protein_coding_genes <- get_protein_coding_genes()
 
-  head(CRISPRGeneEffects)
+  #head(CRISPRGeneEffects)
   CRISPRGeneEffect_ids <- readr::read_csv(CRISPRGeneEffects, col_names = TRUE) %>%
     dplyr::rename(cell_line_id = '...1')
 
@@ -138,7 +138,7 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
 
   depmap[, 3:ncol(depmap)] <- lapply(depmap[, 3:ncol(depmap)], as.numeric)
 
-  print(depmap)
+  #print(depmap)
 
   if (get_mean) {
     depman_mean <- depmap %>%
