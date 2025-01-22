@@ -102,11 +102,11 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   #protein_coding_genes <- get_protein_coding_genes()
 
   #head(CRISPRGeneEffects)
-  print('CRISPRGeneEffects_ids')
+  #print('CRISPRGeneEffects_ids')
   CRISPRGeneEffect_ids <- readr::read_csv(CRISPRGeneEffects, col_names = TRUE) %>%
     dplyr::rename(cell_line_id = '...1')
 
-  print('temp_CGE')
+  #print('temp_CGE')
   temp_CGE <- CRISPRGeneEffect_ids %>%
     inner_join(models, by = 'cell_line_id') %>%
     dplyr::select(!OncotreeLineage)
@@ -124,11 +124,11 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- tibble::rownames_to_column(data.frame(t_depmap))
   colnames(depmap)[1] <- 'symbol'
 
-  print('depmap_hgnc')
+  #print('depmap_hgnc')
   # Using hgnc_checker
   depmap_hgnc <- hgnc_checker(depmap$symbol) #, protein_coding_genes)
 
-  print('depmap')
+  #print('depmap')
   # Adding HGNC IDs to depmap df
   depmap <- left_join(depmap, depmap_hgnc, join_by('symbol' == 'gene_symbol'))
   depmap <- depmap %>% dplyr::relocate(hgnc_id)
@@ -141,12 +141,32 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- genes %>%
     left_join(depmap, by = join_by(hgnc_id))
 
-  depmap[, 3:ncol(depmap)] <- lapply(depmap[, 3:ncol(depmap)], as.numeric)
+  #depmap[, 3:ncol(depmap)] <- lapply(depmap[, 3:ncol(depmap)], as.numeric)
+
+  depmap[, 3:ncol(depmap)] <- lapply(
+    depmap[, 3:ncol(depmap)],
+    function(x) {
+      # Attempt conversion
+      y <- as.numeric(x)
+
+      # Identify positions where `y` is NA but `x` was not originally NA
+      idx <- which(is.na(y) & !is.na(x))
+
+      # If any problematic rows exist, print them
+      if (length(idx) > 0) {
+        cat("These values are being coerced to NA:\n")
+        print(data.frame(row = idx, original_value = x[idx]))
+      }
+
+      # Return the coerced vector
+      y
+    }
+  )
 
   #print(depmap)
 
   if (get_mean) {
-    print('depmap 3.1')
+    #print('depmap 3.1')
     depman_mean <- depmap %>%
       dplyr::mutate(cell_lines_mean = rowMeans(dplyr::select(., 3:ncol(depmap)), na.rm = TRUE)) %>%
       dplyr::select(hgnc_id, cell_lines_mean)
