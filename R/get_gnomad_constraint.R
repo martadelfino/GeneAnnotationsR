@@ -15,7 +15,7 @@ get_gnomad_constraint <- function(protein_coding_genes) {
   gnomad_genes <- protein_coding_genes %>%
     left_join(gnomad, by = 'ensembl_gene_id') %>%
     dplyr::select(-`ensembl_gene_id`, -`mane_select`, -`gene`, -`transcript`,
-                  -`canonical`)
+                  -`canonical`, -`symbol`)
 
   return(gnomad_genes)
 }

@@ -16,7 +16,7 @@ get_other_constraint <- function(protein_coding_genes) {
 
   genes_metrics <- protein_coding_genes %>%
     left_join(metrics, by = 'hgnc_id') %>%
-    dplyr::select(-`ensembl_gene_id`)
+    dplyr::select(-`ensembl_gene_id`, -`symbol`)
 
   return(genes_metrics)
 }

@@ -86,7 +86,8 @@ get_gene_sequence_annotations <- function(protein_coding_genes, keep_version = F
   }
 
   results_hgnc <- protein_coding_genes %>%
-    left_join(results_summarised, by = 'ensembl_gene_id')
+    left_join(results_summarised, by = 'ensembl_gene_id') %>%
+    dplyr::select(-`symbol`, -`ensembl_gene_id`)
 
   return(results_hgnc)
 }
