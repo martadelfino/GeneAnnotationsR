@@ -141,6 +141,8 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- genes %>%
     left_join(depmap, by = join_by(hgnc_id))
 
+  head(depmap)
+
   # Suppose your data frame is 'depmap'
   for (col_name in names(depmap)[3:ncol(depmap)]) {
     original_col <- depmap[[col_name]]
