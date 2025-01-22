@@ -79,7 +79,7 @@ get_mgi_viability <- function(mouse_proteincoding_genes, lethal_terms) {
 #' @param protein_coding_genes Output of get_protein_coding_genes()
 #' @return A data frame with the combined mouse viability.
 #' @export
-get_mouse_viability <- function(protein_coding_genes) {
+get_mouse_viability <- function(protein_coding_genes, combined = TRUE) {
   # Select only gene symbol and mgi id columns
   hgnc <- protein_coding_genes %>%
     dplyr::rename(gene_symbol = symbol, mgi_id = mgd_id) %>%
@@ -116,5 +116,23 @@ get_mouse_viability <- function(protein_coding_genes) {
     replace(is.na(.),"-") %>%
     dplyr::filter(viability_impc != "-" | viability_mgi != "-")
 
-  return(viability_impc_mgi)
+  if (combined) {
+    # Combine the two viability columns
+    viability_impc_mgi <- viability_impc_mgi %>%
+      dplyr::mutate(viability_combined = ifelse(viability_impc %in% c("lethal", "subviable") |
+                                           viability_mgi == "lethal","lethal","viable")) %>%
+      dplyr::mutate(viability_combined_factor = ifelse(viability_combined == "lethal",1,0))
+
+    viability_impc_mgi <- protein_coding_genes %>%
+      dplyr::left_join(viability_impc_mgi, by = 'hgnc_id') %>%
+      dplyr::select(hgnc_id, viability_combined, viability_combined_factor) %>%
+
+    return(viability_impc_mgi)
+  } else {
+    viability_impc_mgi <- protein_coding_genes %>%
+      dplyr::left_join(viability_impc_mgi, by = 'hgnc_id') %?%
+      dplyr::select(hgnc_id, viability_impc, viability_mgi)
+
+      return(viability_impc_mgi)
+    }
 }
