@@ -141,23 +141,18 @@ get_cancer_cell_line_essentiality <- function(genes, models, CRISPRGeneEffects, 
   depmap <- genes %>%
     left_join(depmap, by = join_by(hgnc_id))
 
-  head(depmap)
-
-  # Suppose your data frame is 'depmap'
-  for (col_name in names(depmap)[3:ncol(depmap)]) {
-    original_col <- depmap[[col_name]]
-    # Use suppressWarnings so we don't get repeated warnings
-    num_col <- suppressWarnings(as.numeric(original_col))
-
-    # Find indices of values that become NA after as.numeric(),
-    # but were not originally NA in the data
-    bad_idx <- which(is.na(num_col) & !is.na(original_col))
-
-    if (length(bad_idx) > 0) {
-      cat("\nColumn:", col_name, "\n")
-      print(original_col[bad_idx])
+  # 1) Identify rows in which at least one of the columns 3..n is non-numeric
+  bad_rows <- apply(
+    depmap[, 3:ncol(depmap)],
+    1,
+    function(x) {
+      any(is.na(suppressWarnings(as.numeric(x))))
     }
-  }
+  )
+
+  # 2) Print out (or store) those rows. This shows the entire row.
+  print('bad_rows')
+  print(depmap[bad_rows, ])
 
 
   depmap[, 3:ncol(depmap)] <- lapply(depmap[, 3:ncol(depmap)], as.numeric)
