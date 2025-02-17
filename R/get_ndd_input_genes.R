@@ -188,7 +188,7 @@ get_australia_panelapp <- function(protein_coding_genes) {
 
   panel_urls <- c(
     "https://panelapp.agha.umccr.org/panels/20/download/01234/",
-    "https://panelapp.agha.umccr.org/panels/122/download/01234/",
+    "https://panelapp.agha.umccr.org/panels/112/download/01234/",
     "https://panelapp.agha.umccr.org/panels/250/download/01234/",
     "https://panelapp.agha.umccr.org/panels/3136/download/01234/"
   )
