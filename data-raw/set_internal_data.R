@@ -39,3 +39,5 @@ usethis::use_data(exomiser_pheno_score,
                   sysndd_genes,
                   ddg2p_genes,
                   internal = TRUE, overwrite = TRUE)
+
+

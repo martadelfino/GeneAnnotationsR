@@ -30,3 +30,9 @@ These raw files are not used by the functions, but are provided for transparency
 # raw_protein_coding_genes.R, protein_coding_genes.csv.gz
 R script to download the raw protein coding genes file from HGNC. 13MAR25.
 These raw files are not used by the functions, but are provided for transparency.
+
+
+
+# set_internal_data.R, sysdata.rda
+When all RData files are ready, the script set_internal_data.R should be run to
+set the internal data. This is found in R/
