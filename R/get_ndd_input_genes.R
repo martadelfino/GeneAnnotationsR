@@ -220,10 +220,6 @@ get_australia_panelapp <- function(protein_coding_genes) {
 }
 
 
-
-##########  functions to obtain genes with lower confidence ##########
-
-
 #' Main Function 4 - amber conf gel panelapp
 #'
 #'
