@@ -413,7 +413,7 @@ get_sysndd <- function(protein_coding_genes) {
   protein_coding_genes_sysndd <- protein_coding_genes %>%
     left_join(df3, by = 'hgnc_id')
 
-  return(protein_coding_genes_panelapp)
+  return(protein_coding_genes_sysndd)
   }
 
 
@@ -442,7 +442,7 @@ get_sysndd_moderate <- function(protein_coding_genes) {
   protein_coding_genes_sysndd <- protein_coding_genes %>%
     left_join(df3, by = 'hgnc_id')
 
-  return(protein_coding_genes_panelapp)
+  return(protein_coding_genes_sysndd)
 }
 
 
@@ -471,7 +471,7 @@ get_sysndd_limited <- function(protein_coding_genes) {
   protein_coding_genes_sysndd <- protein_coding_genes %>%
     left_join(df3, by = 'hgnc_id')
 
-  return(protein_coding_genes_panelapp)
+  return(protein_coding_genes_sysndd)
 }
 
 
@@ -508,7 +508,7 @@ get_ddg2p <- function(protein_coding_genes) {
   protein_coding_genes_ddg2p <- protein_coding_genes %>%
     left_join(df2, by = 'hgnc_id')
 
-  return(protein_coding_genes_panelapp)
+  return(protein_coding_genes_ddg2p)
 }
 
 
@@ -543,7 +543,7 @@ get_ddg2p_moderate <- function(protein_coding_genes) {
   protein_coding_genes_ddg2p <- protein_coding_genes %>%
     left_join(df2, by = 'hgnc_id')
 
-  return(protein_coding_genes_panelapp)
+  return(protein_coding_genes_ddg2p)
 }
 
 
@@ -578,6 +578,6 @@ get_ddg2p_limited <- function(protein_coding_genes) {
   protein_coding_genes_ddg2p <- protein_coding_genes %>%
     left_join(df2, by = 'hgnc_id')
 
-  return(protein_coding_genes_panelapp)
+  return(protein_coding_genes_ddg2p)
 }
 
