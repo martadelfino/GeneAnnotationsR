@@ -7,7 +7,7 @@ xlsx to RData format. The RData file contains the data in a df format.
 
 # DDG2P_2025-01-28.csv.gz, ddg2p_raw_to_rdata.R, ddg2p_genes.RData
 https://ftp.ebi.ac.uk/pub/databases/gene2phenotype/G2P_data_downloads_archive/2025_01_28/DDG2P_2025-01-28.csv.gz
-Accessed on Thursday 13MAR25. Accessing the previous one (not the latest,
+Accessed on Thursday 13MAR25. Accessing the previous one 2025-01-28 (not the latest,
 2025-02-28) because they haven't assigned organ to the latest. Merging together
 definitive and strong to keep for the seed genes. Then keeping as moderate and
 limited genes as it is.

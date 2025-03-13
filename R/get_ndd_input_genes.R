@@ -314,7 +314,7 @@ get_gel_panelapp_red <- function(protein_coding_genes) {
 #'
 #' @return Df of the Australia panels NDD. Amber confidence.
 #' @export
-get_australia_panelapp <- function(protein_coding_genes) {
+get_australia_panelapp_amber <- function(protein_coding_genes) {
 
   panel_urls <- c(
     "https://panelapp-aus.org/panels/20/download/01234/",
@@ -355,7 +355,7 @@ get_australia_panelapp <- function(protein_coding_genes) {
 #'
 #' @return Df of the Australia panels NDD. Red confidence.
 #' @export
-get_australia_panelapp <- function(protein_coding_genes) {
+get_australia_panelapp_red <- function(protein_coding_genes) {
 
   panel_urls <- c(
     "https://panelapp-aus.org/panels/20/download/01234/",
@@ -427,7 +427,7 @@ get_sysndd <- function(protein_coding_genes) {
 #'
 #' @return df of SysNDD. Moderate confidence.
 #' @export
-get_sysndd <- function(protein_coding_genes) {
+get_sysndd_moderate <- function(protein_coding_genes) {
 
   df <- sysndd_genes %>%
     dplyr::filter(entities_category == 'Moderate') %>%
@@ -456,7 +456,7 @@ get_sysndd <- function(protein_coding_genes) {
 #'
 #' @return df of SysNDD. Limited confidence.
 #' @export
-get_sysndd <- function(protein_coding_genes) {
+get_sysndd_limited <- function(protein_coding_genes) {
 
   df <- sysndd_genes %>%
     dplyr::filter(entities_category == 'Limited') %>%
@@ -522,7 +522,7 @@ get_ddg2p <- function(protein_coding_genes) {
 #'
 #' @return df of ddg2p. Moderate confidence. Brain/Cognition only.
 #' @export
-get_ddg2p <- function(protein_coding_genes) {
+get_ddg2p_moderate <- function(protein_coding_genes) {
 
   df <- ddg2p_genes %>%
     dplyr::select(`hgnc id`, `confidence category`, `allelic requirement`, `organ specificity list`) %>%
@@ -557,7 +557,7 @@ get_ddg2p <- function(protein_coding_genes) {
 #'
 #' @return df of ddg2p. Moderate confidence. Brain/Cognition only.
 #' @export
-get_ddg2p <- function(protein_coding_genes) {
+get_ddg2p_limited <- function(protein_coding_genes) {
 
   df <- ddg2p_genes %>%
     dplyr::select(`hgnc id`, `confidence category`, `allelic requirement`, `organ specificity list`) %>%
