@@ -60,3 +60,20 @@
 #' @source Other gene constraint metrics: Shet, DOMINO, and SCoNes
 "gene_constraint_metrics"
 
+
+#' sysndd_genes
+#'
+#'
+#'
+#' @format A data frame with ... rows and ... variables:
+#' @source sysndd genes Sheet was downloaded from https://sysndd.dbmr.unibe.ch/Genes on Wednesday 12 March 2025. Website version v0.1.0.
+"sysndd_genes"
+
+
+#' ddg2p_genes
+#'
+#'
+#'
+#' @format A data frame with ... rows and ... variables:
+#' @source ddg2p genes Sheet was downloaded from https://ftp.ebi.ac.uk/pub/databases/gene2phenotype/G2P_data_downloads_archive/2025_01_28/DDG2P_2025-01-28.csv.gz on Wednesday 12 March 2025.
+"ddg2p_genes"

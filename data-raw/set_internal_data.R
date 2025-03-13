@@ -22,6 +22,12 @@ load('./data/LethalTerms.RData')
 # Other constraint metrics
 load('./data/gene_constraint_metrics.rdata')
 
+# SysNDD
+load('./data/sysndd_genes.RData')
+
+# DDG2P
+load('./data/ddg2p_genes.RData')
+
 
 # Creating internal data file
 usethis::use_data(exomiser_pheno_score,
@@ -29,4 +35,7 @@ usethis::use_data(exomiser_pheno_score,
                   mouse, human,
                   cell_essentiality,
                   lethal_terms,
-                  gene_constraint_metrics, internal = TRUE, overwrite = TRUE)
+                  gene_constraint_metrics,
+                  sysndd_genes,
+                  ddg2p_genes,
+                  internal = TRUE, overwrite = TRUE)
