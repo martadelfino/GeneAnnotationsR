@@ -4,7 +4,7 @@
 \alias{get_mouse_viability}
 \title{Main Function}
 \usage{
-get_mouse_viability(protein_coding_genes)
+get_mouse_viability(protein_coding_genes, combined = TRUE)
 }
 \arguments{
 \item{protein_coding_genes}{Output of get_protein_coding_genes()}

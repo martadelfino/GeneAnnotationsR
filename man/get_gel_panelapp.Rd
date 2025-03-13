@@ -7,7 +7,7 @@
 get_gel_panelapp(protein_coding_genes)
 }
 \value{
-A df of the GEL panels for NDD.
+A df of the GEL panels for NDD. Green confidence.
 }
 \description{
 Main Function 2 - df of GEL panels NDD

@@ -224,7 +224,7 @@ get_australia_panelapp <- function(protein_coding_genes) {
 ##########  functions to obtain genes with lower confidence ##########
 
 
-# Main Function 4 - amber conf gel panelapp
+#' Main Function 4 - amber conf gel panelapp
 #'
 #'
 #'
@@ -266,7 +266,7 @@ get_gel_panelapp_amber <- function(protein_coding_genes) {
 }
 
 
-# Main Function 5 - red conf gel panelapp
+#' Main Function 5 - red conf gel panelapp
 #'
 #'
 #'
@@ -308,7 +308,7 @@ get_gel_panelapp_red <- function(protein_coding_genes) {
 }
 
 
-# Main Function 6 - amber conf aus panelapp
+#' Main Function 6 - amber conf aus panelapp
 #'
 #'
 #'
@@ -349,7 +349,7 @@ get_australia_panelapp_amber <- function(protein_coding_genes) {
   return(protein_coding_genes_panelapp)
 }
 
-# Main Function 7 - red conf aus panelapp
+#' Main Function 7 - red conf aus panelapp
 #'
 #'
 #'
@@ -392,7 +392,7 @@ get_australia_panelapp_red <- function(protein_coding_genes) {
 
 
 
-# Main Function 8 - df of SysNDD definitive
+#' Main Function 8 - df of SysNDD definitive
 #'
 #'
 #'
@@ -421,7 +421,7 @@ get_sysndd <- function(protein_coding_genes) {
   }
 
 
-# Main Function 9 - df of SysNDD moderate
+#' Main Function 9 - df of SysNDD moderate
 #'
 #'
 #'
@@ -450,7 +450,7 @@ get_sysndd_moderate <- function(protein_coding_genes) {
 }
 
 
-# Main Function 10 - df of SysNDD limited
+#' Main Function 10 - df of SysNDD limited
 #'
 #'
 #'
@@ -481,7 +481,7 @@ get_sysndd_limited <- function(protein_coding_genes) {
 
 #### ddg2p genes now
 
-# Main Function 11 - df of ddg2p
+#' Main Function 11 - df of ddg2p
 #'
 #'
 #'
@@ -516,7 +516,7 @@ get_ddg2p <- function(protein_coding_genes) {
 }
 
 
-# Main Function 12 - df of ddg2p moderate
+#' Main Function 12 - df of ddg2p moderate
 #'
 #'
 #'
@@ -551,7 +551,7 @@ get_ddg2p_moderate <- function(protein_coding_genes) {
 }
 
 
-# Main Function 11 - df of ddg2p limited
+#' Main Function 11 - df of ddg2p limited
 #'
 #'
 #'

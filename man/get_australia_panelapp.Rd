@@ -7,7 +7,7 @@
 get_australia_panelapp(protein_coding_genes)
 }
 \value{
-Df of the Australia panels NDD
+Df of the Australia panels NDD. Green confidence.
 }
 \description{
 Main Function 3 - df of Australia Panels NDD
