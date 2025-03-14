@@ -401,14 +401,16 @@ get_sysndd <- function(protein_coding_genes) {
     distinct()
 
   df3 <- df %>%
-    dplyr::mutate(
-      select_gene_confidence_sysndd = ifelse(grepl("Definitive", entities_category), '1', NA_real_),
-      select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_ar = ifelse(grepl("Autosomal recessive", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_adar = ifelse(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_x = ifelse(grepl("X-linked", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_all = ifelse(grepl("Autosomal dominant|Autosomal recessive|X-linked", entities_inheritance_filter), '1', NA_real_),
-    )
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarize(
+      select_gene_confidence_sysndd = ifelse(any(grepl("Definitive", entities_category)), '1', NA),
+      select_gene_moi_sysndd_ad = ifelse(any(grepl("Autosomal dominant", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_ar = ifelse(any(grepl("Autosomal recessive", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_adar = ifelse(any(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_x = ifelse(any(grepl("X-linked", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_all = ifelse(any(grepl("Autosomal dominant|Autosomal recessive|X-linked", entities_inheritance_filter)), '1', NA)
+    ) %>%
+    dplyr::ungroup()
 
   protein_coding_genes_sysndd <- protein_coding_genes %>%
     left_join(df3, by = 'hgnc_id')
@@ -430,14 +432,16 @@ get_sysndd_moderate <- function(protein_coding_genes) {
     distinct()
 
   df3 <- df %>%
-    dplyr::mutate(
-      select_gene_confidence_sysndd = ifelse(grepl("Moderate", entities_category), '1', NA_real_),
-      select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_ar = ifelse(grepl("Autosomal recessive", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_adar = ifelse(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_x = ifelse(grepl("X-linked", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_all = ifelse(grepl("Autosomal dominant|Autosomal recessive|X-linked", entities_inheritance_filter), '1', NA_real_),
-    )
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarize(
+      select_gene_confidence_sysndd = ifelse(any(grepl("Definitive", entities_category)), '1', NA),
+      select_gene_moi_sysndd_ad = ifelse(any(grepl("Autosomal dominant", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_ar = ifelse(any(grepl("Autosomal recessive", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_adar = ifelse(any(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_x = ifelse(any(grepl("X-linked", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_all = ifelse(any(grepl("Autosomal dominant|Autosomal recessive|X-linked", entities_inheritance_filter)), '1', NA)
+    ) %>%
+    dplyr::ungroup()
 
   protein_coding_genes_sysndd <- protein_coding_genes %>%
     left_join(df3, by = 'hgnc_id')
@@ -459,14 +463,16 @@ get_sysndd_limited <- function(protein_coding_genes) {
     distinct()
 
   df3 <- df %>%
-    dplyr::mutate(
-      select_gene_confidence_sysndd = ifelse(grepl("Limited", entities_category), '1', NA_real_),
-      select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_ar = ifelse(grepl("Autosomal recessive", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_adar = ifelse(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_x = ifelse(grepl("X-linked", entities_inheritance_filter), '1', NA_real_),
-      select_gene_moi_sysndd_all = ifelse(grepl("Autosomal dominant|Autosomal recessive|X-linked", entities_inheritance_filter), '1', NA_real_),
-    )
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarize(
+      select_gene_confidence_sysndd = ifelse(any(grepl("Definitive", entities_category)), '1', NA),
+      select_gene_moi_sysndd_ad = ifelse(any(grepl("Autosomal dominant", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_ar = ifelse(any(grepl("Autosomal recessive", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_adar = ifelse(any(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_x = ifelse(any(grepl("X-linked", entities_inheritance_filter)), '1', NA),
+      select_gene_moi_sysndd_all = ifelse(any(grepl("Autosomal dominant|Autosomal recessive|X-linked", entities_inheritance_filter)), '1', NA)
+    ) %>%
+    dplyr::ungroup()
 
   protein_coding_genes_sysndd <- protein_coding_genes %>%
     left_join(df3, by = 'hgnc_id')
@@ -496,14 +502,16 @@ get_ddg2p <- function(protein_coding_genes) {
     dplyr::select(hgnc_id, confidence, allelic_requirement)
 
   df2 <- df %>%
-    dplyr::mutate(
-      select_gene_confidence_ddg2p = ifelse(grepl("definitive|strong", confidence), '1', NA_real_),
-      select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_ar = ifelse(grepl("biallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_adar = ifelse(grepl("monoallelic_autosoma|biallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_x = ifelse(grepl("monoallelic_X_het|monoallelic_X_hem", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_all = ifelse(grepl("monoallelic_autosoma|biallelic_autosomal|monoallelic_X_het|monoallelic_X_hem", allelic_requirement), '1', NA_real_),
-    )
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarize(
+      select_gene_confidence_ddg2p = ifelse(any(grepl("definitive|strong", confidence, ignore.case = TRUE)), '1', NA),
+      select_gene_moi_ddg2p_ad = ifelse(any(grepl("monoallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_ar = ifelse(any(grepl("biallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_adar = ifelse(any(grepl("monoallelic_autosoma|biallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_x = ifelse(any(grepl("monoallelic_X_het|monoallelic_X_hem", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_all = ifelse(any(grepl("monoallelic_autosoma|biallelic_autosomal|monoallelic_X_het|monoallelic_X_hem", allelic_requirement)), '1', NA)
+    ) %>%
+    dplyr::ungroup()
 
   protein_coding_genes_ddg2p <- protein_coding_genes %>%
     left_join(df2, by = 'hgnc_id')
@@ -531,14 +539,16 @@ get_ddg2p_moderate <- function(protein_coding_genes) {
     dplyr::select(hgnc_id, confidence, allelic_requirement)
 
   df2 <- df %>%
-    dplyr::mutate(
-      select_gene_confidence_ddg2p = ifelse(grepl("moderate", confidence), '1', NA_real_),
-      select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_ar = ifelse(grepl("biallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_adar = ifelse(grepl("monoallelic_autosoma|biallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_x = ifelse(grepl("monoallelic_X_het|monoallelic_X_hem", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_all = ifelse(grepl("monoallelic_autosoma|biallelic_autosomal|monoallelic_X_het|monoallelic_X_hem", allelic_requirement), '1', NA_real_),
-    )
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarize(
+      select_gene_confidence_ddg2p = ifelse(any(grepl("definitive|strong", confidence, ignore.case = TRUE)), '1', NA),
+      select_gene_moi_ddg2p_ad = ifelse(any(grepl("monoallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_ar = ifelse(any(grepl("biallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_adar = ifelse(any(grepl("monoallelic_autosoma|biallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_x = ifelse(any(grepl("monoallelic_X_het|monoallelic_X_hem", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_all = ifelse(any(grepl("monoallelic_autosoma|biallelic_autosomal|monoallelic_X_het|monoallelic_X_hem", allelic_requirement)), '1', NA)
+    ) %>%
+    dplyr::ungroup()
 
   protein_coding_genes_ddg2p <- protein_coding_genes %>%
     left_join(df2, by = 'hgnc_id')
@@ -566,14 +576,16 @@ get_ddg2p_limited <- function(protein_coding_genes) {
     dplyr::select(hgnc_id, confidence, allelic_requirement)
 
   df2 <- df %>%
-    dplyr::mutate(
-      select_gene_confidence_ddg2p = ifelse(grepl("limited", confidence), '1', NA_real_),
-      select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_ar = ifelse(grepl("biallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_adar = ifelse(grepl("monoallelic_autosoma|biallelic_autosomal", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_x = ifelse(grepl("monoallelic_X_het|monoallelic_X_hem", allelic_requirement), '1', NA_real_),
-      select_gene_moi_ddg2p_all = ifelse(grepl("monoallelic_autosoma|biallelic_autosomal|monoallelic_X_het|monoallelic_X_hem", allelic_requirement), '1', NA_real_),
-    )
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarize(
+      select_gene_confidence_ddg2p = ifelse(any(grepl("definitive|strong", confidence, ignore.case = TRUE)), '1', NA),
+      select_gene_moi_ddg2p_ad = ifelse(any(grepl("monoallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_ar = ifelse(any(grepl("biallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_adar = ifelse(any(grepl("monoallelic_autosoma|biallelic_autosomal", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_x = ifelse(any(grepl("monoallelic_X_het|monoallelic_X_hem", allelic_requirement)), '1', NA),
+      select_gene_moi_ddg2p_all = ifelse(any(grepl("monoallelic_autosoma|biallelic_autosomal|monoallelic_X_het|monoallelic_X_hem", allelic_requirement)), '1', NA)
+    ) %>%
+    dplyr::ungroup()
 
   protein_coding_genes_ddg2p <- protein_coding_genes %>%
     left_join(df2, by = 'hgnc_id')

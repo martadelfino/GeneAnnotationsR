@@ -26,7 +26,21 @@ sysndd_genes <- df2
 save(sysndd_genes, file = "data/sysndd_genes.RData")
 
 
+#df3 <- sysndd_genes %>%
+#  dplyr::filter(entities_category == 'Definitive')
 
+# Group by hgnc_id and summarize to avoid duplicate rows
+#df_grouped <- df3 %>%
+ # dplyr::group_by(hgnc_id) %>%
+  #dplyr::summarize(
+   # select_gene_confidence_sysndd = ifelse(any(grepl("Definitive", entities_category)), '1', NA),
+    #select_gene_moi_sysndd_ad = ifelse(any(grepl("Autosomal dominant", entities_inheritance_filter)), '1', NA),
+#    select_gene_moi_sysndd_ar = ifelse(any(grepl("Autosomal recessive", entities_inheritance_filter)), '1', NA),
+ #   select_gene_moi_sysndd_adar = ifelse(any(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter)), '1', NA),
+  #  select_gene_moi_sysndd_x = ifelse(any(grepl("X-linked", entities_inheritance_filter)), '1', NA),
+   # select_gene_moi_sysndd_all = ifelse(any(grepl("Autosomal dominant|Autosomal recessive|X-linked", entities_inheritance_filter)), '1', NA)
+#  ) %>%
+ # dplyr::ungroup()
 
 
 #df_definitive <- df2 %>%
