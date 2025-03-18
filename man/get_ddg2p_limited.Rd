@@ -7,7 +7,7 @@
 get_ddg2p_limited(protein_coding_genes)
 }
 \value{
-df of ddg2p. Moderate confidence. Brain/Cognition only.
+df of ddg2p. Limited confidence. Brain/Cognition only.
 }
 \description{
 Main Function 11 - df of ddg2p limited
