@@ -500,7 +500,7 @@ get_ddg2p <- function(protein_coding_genes) {
     dplyr::mutate(hgnc_id = paste0("HGNC:", hgnc_id)) %>%
     dplyr::filter(grepl("Brain/Cognition", organ_specificity)) %>%
     dplyr::select(hgnc_id, confidence, allelic_requirement) %>%
-    dplyr::filter(confidence == 'definitive', confidence == 'strong' ) %>%
+    dplyr::filter(confidence == 'definitive' | confidence == 'strong' ) %>%
     distinct()
 
   df_agg <- df %>%
