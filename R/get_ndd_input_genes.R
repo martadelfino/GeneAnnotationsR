@@ -400,7 +400,11 @@ get_sysndd <- function(protein_coding_genes) {
     dplyr::filter(entities_category == 'Definitive') %>%
     distinct()
 
-  df3 <- df %>%
+  df_agg <- df %>%
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarise(entities_inheritance_filter = paste0(unique(entities_inheritance_filter), collapse = "|"))
+
+  df3 <- df_agg %>%
     dplyr::mutate(
       select_gene_confidence_sysndd = ifelse(grepl("Definitive", entities_category, ignore.case = TRUE), '1', NA),
       select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
@@ -427,7 +431,11 @@ get_sysndd_moderate <- function(protein_coding_genes) {
     dplyr::filter(entities_category == 'Moderate') %>%
     distinct()
 
-  df3 <- df %>%
+  df_agg <- df %>%
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarise(entities_inheritance_filter = paste0(unique(entities_inheritance_filter), collapse = "|"))
+
+  df3 <- df_agg %>%
     dplyr::mutate(
       select_gene_confidence_sysndd = ifelse(grepl("Moderate", entities_category, ignore.case = TRUE), '1', NA),
       select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
@@ -454,7 +462,11 @@ get_sysndd_limited <- function(protein_coding_genes) {
     dplyr::filter(entities_category == 'Limited') %>%
     distinct()
 
-  df3 <- df %>%
+  df_agg <- df %>%
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarise(entities_inheritance_filter = paste0(unique(entities_inheritance_filter), collapse = "|"))
+
+  df3 <- df_agg %>%
     dplyr::mutate(
       select_gene_confidence_sysndd = ifelse(grepl("Limited", entities_category, ignore.case = TRUE), '1', NA),
       select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
@@ -488,10 +500,14 @@ get_ddg2p <- function(protein_coding_genes) {
     dplyr::mutate(hgnc_id = paste0("HGNC:", hgnc_id)) %>%
     dplyr::filter(grepl("Brain/Cognition", organ_specificity)) %>%
     dplyr::select(hgnc_id, confidence, allelic_requirement) %>%
-    dplyr::filter(confidence == 'definitive|strong') %>%
+    dplyr::filter(confidence == 'definitive', confidence == 'strong' ) %>%
     distinct()
 
-  df2 <- df %>%
+  df_agg <- df %>%
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarise(allelic_requirement = paste0(unique(allelic_requirement), collapse = "|"))
+
+  df2 <- df_agg %>%
     dplyr::mutate(
       select_gene_confidence_ddg2p = ifelse(grepl("definitive|strong", confidence, ignore.case = TRUE), '1', NA),
       select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
@@ -526,7 +542,11 @@ get_ddg2p_moderate <- function(protein_coding_genes) {
     dplyr::filter(confidence == 'moderate') %>%
     distinct()
 
-  df2 <- df %>%
+  df_agg <- df %>%
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarise(allelic_requirement = paste0(unique(allelic_requirement), collapse = "|"))
+
+  df2 <- df_agg %>%
     dplyr::mutate(
       select_gene_confidence_ddg2p = ifelse(grepl("moderate", confidence, ignore.case = TRUE), '1', NA),
       select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
@@ -561,7 +581,11 @@ get_ddg2p_limited <- function(protein_coding_genes) {
     dplyr::filter(confidence == 'limited') %>%
     distinct()
 
-  df2 <- df %>%
+  df_agg <- df %>%
+    dplyr::group_by(hgnc_id) %>%
+    dplyr::summarise(allelic_requirement = paste0(unique(allelic_requirement), collapse = "|"))
+
+  df2 <- df_agg %>%
     dplyr::mutate(
       select_gene_confidence_ddg2p = ifelse(grepl("limited", confidence, ignore.case = TRUE), '1', NA),
       select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
