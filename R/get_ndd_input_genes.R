@@ -406,7 +406,7 @@ get_sysndd <- function(protein_coding_genes) {
 
   df3 <- df_agg %>%
     dplyr::mutate(
-      select_gene_confidence_sysndd = ifelse(grepl("Definitive", entities_category, ignore.case = TRUE), '1', NA),
+      select_gene_confidence_sysndd = '1',
       select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
       select_gene_moi_sysndd_ar = ifelse(grepl("Autosomal recessive", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
       select_gene_moi_sysndd_adar = ifelse(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
@@ -437,7 +437,7 @@ get_sysndd_moderate <- function(protein_coding_genes) {
 
   df3 <- df_agg %>%
     dplyr::mutate(
-      select_gene_confidence_sysndd = ifelse(grepl("Moderate", entities_category, ignore.case = TRUE), '1', NA),
+      select_gene_confidence_sysndd = '1',
       select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
       select_gene_moi_sysndd_ar = ifelse(grepl("Autosomal recessive", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
       select_gene_moi_sysndd_adar = ifelse(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
@@ -468,7 +468,7 @@ get_sysndd_limited <- function(protein_coding_genes) {
 
   df3 <- df_agg %>%
     dplyr::mutate(
-      select_gene_confidence_sysndd = ifelse(grepl("Limited", entities_category, ignore.case = TRUE), '1', NA),
+      select_gene_confidence_sysndd = '1',
       select_gene_moi_sysndd_ad = ifelse(grepl("Autosomal dominant", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
       select_gene_moi_sysndd_ar = ifelse(grepl("Autosomal recessive", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
       select_gene_moi_sysndd_adar = ifelse(grepl("Autosomal dominant|Autosomal recessive", entities_inheritance_filter) & select_gene_confidence_sysndd == '1', '1', NA),
@@ -509,7 +509,7 @@ get_ddg2p <- function(protein_coding_genes) {
 
   df2 <- df_agg %>%
     dplyr::mutate(
-      select_gene_confidence_ddg2p = ifelse(grepl("definitive|strong", confidence, ignore.case = TRUE), '1', NA),
+      select_gene_confidence_ddg2p = '1',
       select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
       select_gene_moi_ddg2p_ar = ifelse(grepl("biallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
       select_gene_moi_ddg2p_adar = ifelse(grepl("monoallelic_autosomal|biallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1','1', NA),
@@ -548,7 +548,7 @@ get_ddg2p_moderate <- function(protein_coding_genes) {
 
   df2 <- df_agg %>%
     dplyr::mutate(
-      select_gene_confidence_ddg2p = ifelse(grepl("moderate", confidence, ignore.case = TRUE), '1', NA),
+      select_gene_confidence_ddg2p = '1',
       select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
       select_gene_moi_ddg2p_ar = ifelse(grepl("biallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
       select_gene_moi_ddg2p_adar = ifelse(grepl("monoallelic_autosomal|biallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1','1', NA),
@@ -587,7 +587,7 @@ get_ddg2p_limited <- function(protein_coding_genes) {
 
   df2 <- df_agg %>%
     dplyr::mutate(
-      select_gene_confidence_ddg2p = ifelse(grepl("limited", confidence, ignore.case = TRUE), '1', NA),
+      select_gene_confidence_ddg2p = '1',
       select_gene_moi_ddg2p_ad = ifelse(grepl("monoallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
       select_gene_moi_ddg2p_ar = ifelse(grepl("biallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1', '1', NA),
       select_gene_moi_ddg2p_adar = ifelse(grepl("monoallelic_autosomal|biallelic_autosomal", allelic_requirement) & select_gene_confidence_ddg2p == '1','1', NA),
