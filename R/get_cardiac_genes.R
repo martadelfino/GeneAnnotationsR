@@ -223,7 +223,7 @@ get_australia_panelapp_amber_cardiac <- function(protein_coding_genes) {
 #'
 #' @return Df of austalia cardiac panels red.
 #' @export
-get_australia_panelapp_red <- function(protein_coding_genes) {
+get_australia_panelapp_red_cardiac <- function(protein_coding_genes) {
 
   panel_urls <- c(
     "https://panelapp-aus.org/panels/76/download/01234/",
