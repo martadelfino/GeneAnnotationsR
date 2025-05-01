@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_cardiac_genes.R
 \name{get_australia_panelapp_cardiac}
 \alias{get_australia_panelapp_cardiac}
-\title{Main Function 2 - df of Australia cardiac panels}
+\title{Main Function 4 - df of Australia cardiac panels}
 \usage{
 get_australia_panelapp_cardiac(protein_coding_genes)
 }
@@ -10,5 +10,5 @@ get_australia_panelapp_cardiac(protein_coding_genes)
 Df of austalia cardiac panels.
 }
 \description{
-Main Function 2 - df of Australia cardiac panels
+Main Function 4 - df of Australia cardiac panels
 }
