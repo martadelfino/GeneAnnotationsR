@@ -13,7 +13,14 @@ get_gel_panelapp_cardiac<- function(protein_coding_genes) {
     "https://panelapp.genomicsengland.co.uk/panels/652/download/01234/",
     "https://panelapp.genomicsengland.co.uk/panels/47/download/01234/",
     "https://panelapp.genomicsengland.co.uk/panels/49/download/01234/",
-    "https://panelapp.genomicsengland.co.uk/panels/238/download/01234/"
+    "https://panelapp.genomicsengland.co.uk/panels/238/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/13/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/842/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/843/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/214/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/277/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/76/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/45/download/01234/"
   )
 
   # Load and clean each panel, then bind them together
@@ -57,7 +64,14 @@ get_gel_panelapp_amber_cardiac <- function(protein_coding_genes) {
     "https://panelapp.genomicsengland.co.uk/panels/652/download/01234/",
     "https://panelapp.genomicsengland.co.uk/panels/47/download/01234/",
     "https://panelapp.genomicsengland.co.uk/panels/49/download/01234/",
-    "https://panelapp.genomicsengland.co.uk/panels/238/download/01234/"
+    "https://panelapp.genomicsengland.co.uk/panels/238/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/13/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/842/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/843/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/214/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/277/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/76/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/45/download/01234/"
   )
 
   # Load and clean each panel, then bind them together
@@ -101,7 +115,14 @@ get_gel_panelapp_red_cardiac <- function(protein_coding_genes) {
     "https://panelapp.genomicsengland.co.uk/panels/652/download/01234/",
     "https://panelapp.genomicsengland.co.uk/panels/47/download/01234/",
     "https://panelapp.genomicsengland.co.uk/panels/49/download/01234/",
-    "https://panelapp.genomicsengland.co.uk/panels/238/download/01234/"
+    "https://panelapp.genomicsengland.co.uk/panels/238/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/13/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/842/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/843/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/214/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/277/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/76/download/01234/",
+    "https://panelapp.genomicsengland.co.uk/panels/45/download/01234/"
   )
 
   # Load and clean each panel, then bind them together
@@ -144,7 +165,11 @@ get_australia_panelapp_cardiac <- function(protein_coding_genes) {
     "https://panelapp-aus.org/panels/111/download/01234/",
     "https://panelapp-aus.org/panels/95/download/01234/",
     "https://panelapp-aus.org/panels/3270/download/01234/",
-    "https://panelapp-aus.org/panels/48/download/01234/"
+    "https://panelapp-aus.org/panels/48/download/01234/",
+    "https://panelapp-aus.org/panels/60/download/01234/",
+    "https://panelapp-aus.org/panels/92/download/01234/",
+    "https://panelapp-aus.org/panels/183/download/01234/",
+    "https://panelapp-aus.org/panels/131/download/01234/"
   )
 
   # Load and clean each panel, then bind them together
@@ -187,7 +212,11 @@ get_australia_panelapp_amber_cardiac <- function(protein_coding_genes) {
     "https://panelapp-aus.org/panels/111/download/01234/",
     "https://panelapp-aus.org/panels/95/download/01234/",
     "https://panelapp-aus.org/panels/3270/download/01234/",
-    "https://panelapp-aus.org/panels/48/download/01234/"
+    "https://panelapp-aus.org/panels/48/download/01234/",
+    "https://panelapp-aus.org/panels/60/download/01234/",
+    "https://panelapp-aus.org/panels/92/download/01234/",
+    "https://panelapp-aus.org/panels/183/download/01234/",
+    "https://panelapp-aus.org/panels/131/download/01234/"
   )
 
   # Load and clean each panel, then bind them together
@@ -230,7 +259,11 @@ get_australia_panelapp_red_cardiac <- function(protein_coding_genes) {
     "https://panelapp-aus.org/panels/111/download/01234/",
     "https://panelapp-aus.org/panels/95/download/01234/",
     "https://panelapp-aus.org/panels/3270/download/01234/",
-    "https://panelapp-aus.org/panels/48/download/01234/"
+    "https://panelapp-aus.org/panels/48/download/01234/",
+    "https://panelapp-aus.org/panels/60/download/01234/",
+    "https://panelapp-aus.org/panels/92/download/01234/",
+    "https://panelapp-aus.org/panels/183/download/01234/",
+    "https://panelapp-aus.org/panels/131/download/01234/"
   )
 
   # Load and clean each panel, then bind them together
