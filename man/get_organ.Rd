@@ -9,7 +9,8 @@ get_organ(organism, organ)
 \arguments{
 \item{organism}{A string of either 'mouse' or 'human'.}
 
-\item{organ}{A string of the organ of interest.}
+\item{organ}{A string of the organ of interest. Options: Brain, Cerebellum,
+Heart, Kidney, Liver, Ovary, Testis.}
 }
 \value{
 A data frame with the columns of the organ of interest of either mouse or human.

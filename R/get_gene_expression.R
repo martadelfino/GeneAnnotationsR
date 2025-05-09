@@ -7,7 +7,8 @@
 #' mouse IDs are different. add script to match to human orthologs.
 #'
 #' @param organism A string of either 'mouse' or 'human'.
-#' @param organ A string of the organ of interest.
+#' @param organ A string of the organ of interest. Options: Brain, Cerebellum,
+#' Heart, Kidney, Liver, Ovary, Testis.
 #' @return A data frame with the columns of the organ of interest of either mouse or human.
 #' @export
 get_organ <- function(organism, organ) {
