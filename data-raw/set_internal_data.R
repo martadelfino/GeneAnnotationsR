@@ -28,6 +28,9 @@ load('./data/sysndd_genes.RData')
 # DDG2P
 load('./data/ddg2p_genes.RData')
 
+# all_protein_data
+load('./data/all_protein_data.RData')
+
 
 # Creating internal data file
 usethis::use_data(exomiser_pheno_score,
@@ -38,6 +41,7 @@ usethis::use_data(exomiser_pheno_score,
                   gene_constraint_metrics,
                   sysndd_genes,
                   ddg2p_genes,
+                  all_protein_data,
                   internal = TRUE, overwrite = TRUE)
 
 
