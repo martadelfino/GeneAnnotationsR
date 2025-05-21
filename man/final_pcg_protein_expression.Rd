@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_protein_expression.R
 \name{final_pcg_protein_expression}
 \alias{final_pcg_protein_expression}
-\title{Helper Function 7 - protein expression, final df}
+\title{Helper Function 1.7 - protein expression, final df}
 \usage{
 final_pcg_protein_expression(
   df1_pcg,
@@ -14,5 +14,5 @@ final_pcg_protein_expression(
 A dataframe with protein expression mapped to hgnc_id, final df
 }
 \description{
-Helper Function 7 - protein expression, final df
+Helper Function 1.7 - protein expression, final df
 }

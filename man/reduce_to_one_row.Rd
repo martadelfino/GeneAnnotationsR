@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_protein_expression.R
 \name{reduce_to_one_row}
 \alias{reduce_to_one_row}
-\title{Helper Function 6 - protein expression, distinct rows}
+\title{Helper Function 1.6 - protein expression, distinct rows}
 \usage{
 reduce_to_one_row(data, id_col = "hgnc_id")
 }
@@ -10,5 +10,5 @@ reduce_to_one_row(data, id_col = "hgnc_id")
 A dataframe with protein expression mapped to hgnc_id, tissue cell type scores, distinct rows
 }
 \description{
-Helper Function 6 - protein expression, distinct rows
+Helper Function 1.6 - protein expression, distinct rows
 }

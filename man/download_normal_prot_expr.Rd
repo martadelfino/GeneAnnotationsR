@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_protein_expression.R
 \name{download_normal_prot_expr}
 \alias{download_normal_prot_expr}
-\title{Helper Function 1 - download protein expression}
+\title{Helper Function 1.1 - download protein expression}
 \usage{
 download_normal_prot_expr()
 }
@@ -10,5 +10,5 @@ download_normal_prot_expr()
 A dataframe with protein expression from protein atlas
 }
 \description{
-Helper Function 1 - download protein expression
+Helper Function 1.1 - download protein expression
 }

@@ -1,5 +1,5 @@
 
-#' Helper Function 1 - download protein expression
+#' Helper Function 1.1 - download protein expression
 #'
 #'
 #'
@@ -20,7 +20,7 @@ download_normal_prot_expr <- function() {
 }
 
 
-#' Helper Function 2 - protein expression, filter and remove columns
+#' Helper Function 1.2 - protein expression, filter and remove columns
 #'
 #'
 #'
@@ -40,7 +40,7 @@ filter_and_remove_columns <- function(data, cols_to_remove) {
 }
 
 
-#' Helper Function 3 - protein expression, select brain tissues
+#' Helper Function 1.3 - protein expression, select brain tissues
 #'
 #'
 #'
@@ -56,7 +56,7 @@ select_brain_tissues <- function(data) {
 }
 
 
-#' Helper Function 4 - protein expression, creating binary features
+#' Helper Function 1.4 - protein expression, creating binary features
 #'
 #'
 #'
@@ -108,7 +108,7 @@ create_category_features <- function(data) {
 }
 
 
-#' Helper Function 5 - protein expression, tissue cell type scores
+#' Helper Function 1.5 - protein expression, tissue cell type scores
 #'
 #'
 #'
@@ -168,7 +168,7 @@ create_tissue_celltype_level_scores <- function(data) {
 }
 
 
-#' Helper Function 6 - protein expression, distinct rows
+#' Helper Function 1.6 - protein expression, distinct rows
 #'
 #'
 #'
@@ -197,7 +197,7 @@ reduce_to_one_row <- function(data, id_col = "hgnc_id") {
 }
 
 
-#' Helper Function 7 - protein expression, final df
+#' Helper Function 1.7 - protein expression, final df
 #'
 #'
 #'
@@ -224,13 +224,13 @@ final_pcg_protein_expression <- function(df1_pcg, df2_filtered_removed_columns, 
 }
 
 
-#' Main Function - get protein expression
+#' Main Function 1 - get protein expression from HPA
 #'
 #'
 #'
-#' @return A dataframe with protein expression mapped to hgnc_id
+#' @return A dataframe with protein expression from HPA mapped to hgnc_id
 #' @export
-get_protein_expression <- function(protein_coding_genes, brain_tissues_only = TRUE) {
+get_protein_expression_hpa <- function(protein_coding_genes, brain_tissues_only = TRUE) {
 
   protein_expression <- download_normal_prot_expr()
 
@@ -261,4 +261,71 @@ get_protein_expression <- function(protein_coding_genes, brain_tissues_only = TR
 }
 
 
+#' Helper Function 2.1 - clean protein expression raw file
+#'
+#'
+#'
+#' @return A clean dataframe with protein expression from ProteomicsDB
+#' @export
+clean_protein_expression_raw_file <- function() {
 
+  all_protein_data_clean <- all_protein_data %>%
+    dplyr::select(hgnc_id, uniprot_ids, TISSUE_ID, TISSUE_NAME,
+                  UNNORMALIZED_INTENSITY, NORMALIZED_INTENSITY,
+                  MIN_NORMALIZED_INTENSITY, MAX_NORMALIZED_INTENSITY,
+                  SAMPLES)
+
+  return(df)
+}
+
+#' Helper Function 2.1 - show all tissues in protein expression raw file
+#'
+#'
+#'
+#' @return A clean dataframe with all tissues in protein expression from ProteomicsDB
+#' @export
+clean_protein_expression_raw_file <- function() {
+
+  tissues <- all_protein_data %>%
+    dplyr::select(TISSUE_ID, TISSUE_NAME) %>%
+    distinct()
+
+  return(tissues)
+}
+
+
+#' Main Function 2 - get protein expression from ProteomicsDB
+#'
+#'
+#'
+#' @return A dataframe with protein expression from HPA mapped to hgnc_id
+#' @export
+get_protein_expression_pdb <- function(protein_coding_genes, specific_tissue = NULL,
+                                       zeros = TRUE) {
+
+  pcg <- protein_coding_genes %>%
+    dplyr::select(hgnc_id)
+
+  if (specific_tissue == is.NULL) {
+    # Get all protein expression data
+    protein_expression <- all_protein_data
+  } else {
+    # Filter for the specified tissue
+    protein_expression <- all_protein_data %>%
+      dplyr::filter(TISSUE_NAME == specific_tissue)
+  }
+
+  if (zeros) {
+    # Fill missing values with 0
+
+    pcg2 <- pcg %>%
+      dplyr::left_join(protein_expression, by = 'hgnc_id',
+                       suffix = c("", "_y"))
+
+    protein_expression2 <- pcg2 %>%
+      dplyr::mutate(across(c(UNNORMALIZED_INTENSITY, NORMALIZED_INTENSITY,
+                             MIN_NORMALIZED_INTENSITY, MAX_NORMALIZED_INTENSITY),
+                           ~ replace_na(.x, 0)))
+  }
+  return(protein_expression2)
+}

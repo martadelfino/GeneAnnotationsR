@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_protein_expression.R
 \name{create_category_features}
 \alias{create_category_features}
-\title{Helper Function 4 - protein expression, creating binary features}
+\title{Helper Function 1.4 - protein expression, creating binary features}
 \usage{
 create_category_features(data)
 }
@@ -10,5 +10,5 @@ create_category_features(data)
 A dataframe with protein expression mapped to hgnc_id, brain tissues only
 }
 \description{
-Helper Function 4 - protein expression, creating binary features
+Helper Function 1.4 - protein expression, creating binary features
 }

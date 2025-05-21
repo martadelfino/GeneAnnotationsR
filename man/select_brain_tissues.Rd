@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_protein_expression.R
 \name{select_brain_tissues}
 \alias{select_brain_tissues}
-\title{Helper Function 3 - protein expression, select brain tissues}
+\title{Helper Function 1.3 - protein expression, select brain tissues}
 \usage{
 select_brain_tissues(data)
 }
@@ -10,5 +10,5 @@ select_brain_tissues(data)
 A dataframe with protein expression mapped to hgnc_id, brain tissues only
 }
 \description{
-Helper Function 3 - protein expression, select brain tissues
+Helper Function 1.3 - protein expression, select brain tissues
 }

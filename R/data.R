@@ -77,3 +77,12 @@
 #' @format A data frame with ... rows and ... variables:
 #' @source ddg2p genes Sheet was downloaded from https://ftp.ebi.ac.uk/pub/databases/gene2phenotype/G2P_data_downloads_archive/2025_01_28/DDG2P_2025-01-28.csv.gz on Wednesday 12 March 2025.
 "ddg2p_genes"
+
+
+#' all_protein_data
+#'
+#'
+#'
+#' @format A data frame with ... rows and ... variables:
+#' @source Data accessed with the API from proteomics.db. The data was downloaded on 20MAY25.
+"all_protein_data"

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_protein_expression.R
 \name{filter_and_remove_columns}
 \alias{filter_and_remove_columns}
-\title{Helper Function 2 - protein expression, filter and remove columns}
+\title{Helper Function 1.2 - protein expression, filter and remove columns}
 \usage{
 filter_and_remove_columns(data, cols_to_remove)
 }
@@ -10,5 +10,5 @@ filter_and_remove_columns(data, cols_to_remove)
 A dataframe with protein expression mapped to hgnc_id, filtered columns
 }
 \description{
-Helper Function 2 - protein expression, filter and remove columns
+Helper Function 1.2 - protein expression, filter and remove columns
 }
