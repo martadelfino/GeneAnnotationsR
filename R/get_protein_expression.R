@@ -269,16 +269,18 @@ get_protein_expression_hpa <- function(protein_coding_genes, brain_tissues_only 
 #' @export
 clean_protein_expression_raw_file <- function() {
 
+  #load('./data/complete_protein_expression_data.RData')
+
   all_protein_data_clean <- all_protein_data %>%
     dplyr::select(hgnc_id, uniprot_ids, TISSUE_ID, TISSUE_NAME,
                   UNNORMALIZED_INTENSITY, NORMALIZED_INTENSITY,
                   MIN_NORMALIZED_INTENSITY, MAX_NORMALIZED_INTENSITY,
                   SAMPLES)
 
-  return(df)
+  return(all_protein_data_clean)
 }
 
-#' Helper Function 2.1 - show all tissues in protein expression raw file
+#' Helper Function 2.2 - show all tissues in protein expression raw file
 #'
 #'
 #'

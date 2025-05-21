@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_protein_expression.R
 \name{protein_expression_pdb_tissues}
 \alias{protein_expression_pdb_tissues}
-\title{Helper Function 2.1 - show all tissues in protein expression raw file}
+\title{Helper Function 2.2 - show all tissues in protein expression raw file}
 \usage{
 protein_expression_pdb_tissues()
 }
@@ -10,5 +10,5 @@ protein_expression_pdb_tissues()
 A clean dataframe with all tissues in protein expression from ProteomicsDB
 }
 \description{
-Helper Function 2.1 - show all tissues in protein expression raw file
+Helper Function 2.2 - show all tissues in protein expression raw file
 }
