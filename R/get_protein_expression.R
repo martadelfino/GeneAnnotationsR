@@ -300,6 +300,9 @@ protein_expression_pdb_tissues <- function() {
 #'
 #'
 #'
+#' @param protein_coding_genes A dataframe with protein coding genes
+#' @param specific_tissue A string with the name of the tissue to filter for
+#' @param zeros A boolean indicating whether to fill missing values with 0
 #' @return A dataframe with protein expression from HPA mapped to hgnc_id
 #' @export
 get_protein_expression_pdb <- function(protein_coding_genes, specific_tissue = NULL,
