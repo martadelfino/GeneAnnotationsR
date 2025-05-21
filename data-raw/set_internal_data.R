@@ -29,7 +29,7 @@ load('./data/sysndd_genes.RData')
 load('./data/ddg2p_genes.RData')
 
 # ProteomicsDB protein expression
-load('./data/complete_protein_expression_data.RData')
+#load('./data/complete_protein_expression_data.RData')
 
 
 # Creating internal data file
@@ -40,8 +40,7 @@ usethis::use_data(exomiser_pheno_score,
                   lethal_terms,
                   gene_constraint_metrics,
                   sysndd_genes,
-                  ddg2p_genes,
-                  all_protein_data,
+                  ddg2p_genes,#                 all_protein_data,
                   internal = TRUE, overwrite = TRUE)
 
 
