@@ -29,7 +29,7 @@ load('./data/sysndd_genes.RData')
 load('./data/ddg2p_genes.RData')
 
 # all_protein_data
-load('./data/all_protein_data.RData')
+load('./data/complete_protein_expression_data.RData')
 
 
 # Creating internal data file
