@@ -5,16 +5,10 @@
 \title{Helper Function 2.1 - clean protein expression raw file}
 \usage{
 clean_protein_expression_raw_file()
-
-clean_protein_expression_raw_file()
 }
 \value{
 A clean dataframe with protein expression from ProteomicsDB
-
-A clean dataframe with all tissues in protein expression from ProteomicsDB
 }
 \description{
 Helper Function 2.1 - clean protein expression raw file
-
-Helper Function 2.1 - show all tissues in protein expression raw file
 }

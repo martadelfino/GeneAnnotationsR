@@ -284,7 +284,7 @@ clean_protein_expression_raw_file <- function() {
 #'
 #' @return A clean dataframe with all tissues in protein expression from ProteomicsDB
 #' @export
-clean_protein_expression_raw_file <- function() {
+protein_expression_pdb_tissues <- function() {
 
   tissues <- all_protein_data %>%
     dplyr::select(TISSUE_ID, TISSUE_NAME) %>%
@@ -306,12 +306,14 @@ get_protein_expression_pdb <- function(protein_coding_genes, specific_tissue = N
   pcg <- protein_coding_genes %>%
     dplyr::select(hgnc_id)
 
+  protein_expression_clean <- clean_protein_expression_raw_file()
+
   if (is.null(specific_tissue)) {
     # Get all protein expression data
-    protein_expression <- all_protein_data
+    protein_expression <- protein_expression_clean
   } else {
     # Filter for the specified tissue
-    protein_expression <- all_protein_data %>%
+    protein_expression <- protein_expression_clean %>%
       dplyr::filter(TISSUE_NAME == specific_tissue)
   }
 
