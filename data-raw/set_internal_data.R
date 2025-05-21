@@ -28,7 +28,7 @@ load('./data/sysndd_genes.RData')
 # DDG2P
 load('./data/ddg2p_genes.RData')
 
-# all_protein_data
+# ProteomicsDB protein expression
 load('./data/complete_protein_expression_data.RData')
 
 
