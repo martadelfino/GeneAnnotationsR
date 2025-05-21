@@ -306,7 +306,7 @@ get_protein_expression_pdb <- function(protein_coding_genes, specific_tissue = N
   pcg <- protein_coding_genes %>%
     dplyr::select(hgnc_id)
 
-  if (specific_tissue == is.NULL) {
+  if (is.null(specific_tissue)) {
     # Get all protein expression data
     protein_expression <- all_protein_data
   } else {
