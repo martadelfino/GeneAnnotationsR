@@ -264,10 +264,10 @@ get_protein_expression_hpa <- function(protein_coding_genes, brain_tissues_only 
 #' Helper Function 2.1 - clean protein expression raw file
 #'
 #'
-#'
+#' @param all_protein_data description
 #' @return A clean dataframe with protein expression from ProteomicsDB
 #' @export
-clean_protein_expression_raw_file <- function() {
+clean_protein_expression_raw_file <- function(all_protein_data) {
 
   #load('./data/complete_protein_expression_data.RData')
 
@@ -286,7 +286,7 @@ clean_protein_expression_raw_file <- function() {
 #'
 #' @return A clean dataframe with all tissues in protein expression from ProteomicsDB
 #' @export
-protein_expression_pdb_tissues <- function() {
+protein_expression_pdb_tissues <- function(all_protein_data) {
 
   tissues <- all_protein_data %>%
     dplyr::select(TISSUE_ID, TISSUE_NAME) %>%
@@ -306,12 +306,12 @@ protein_expression_pdb_tissues <- function() {
 #' @return A dataframe with protein expression from HPA mapped to hgnc_id
 #' @export
 get_protein_expression_pdb <- function(protein_coding_genes, specific_tissue = NULL,
-                                       zeros = TRUE) {
+                                       zeros = TRUE, all_protein_data) {
 
   pcg <- protein_coding_genes %>%
     dplyr::select(hgnc_id)
 
-  protein_expression_clean <- clean_protein_expression_raw_file()
+  protein_expression_clean <- clean_protein_expression_raw_file(all_protein_data)
 
   if (is.null(specific_tissue)) {
     # Get all protein expression data
